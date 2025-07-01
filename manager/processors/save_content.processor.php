@@ -54,7 +54,7 @@ $hide_from_tree = (int) $_POST['hide_from_tree'];
 $menutitle = $_POST['menutitle'];
 $hidemenu = (int) $_POST['hidemenu'];
 $aliasvisible = (int) $_POST['alias_visible'];
-
+$createdon = (int) $_POST['createdon'] ?? strtotime('now');
 /************* webber ********/
 $sd = isset($_POST['dir']) && strtolower($_POST['dir']) === 'asc' ? '&dir=ASC' : '&dir=DESC';
 $sb = isset($_POST['sort']) ? '&sort=' . e($_POST['sort']) : '&sort=pub_date';
@@ -356,6 +356,7 @@ $resourceArray = [
     'menutitle'       => $menutitle,
     'hidemenu'        => $hidemenu,
     'alias_visible'   => $aliasvisible,
+    "createdon" => $createdon,
 ];
 
 switch ($actionToTake) {
